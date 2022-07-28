@@ -4,7 +4,7 @@ import time
 time.sleep(5)
 
 wait = 0.1
-distance = 200
+distance = 1000
 
 pyautogui.move(-(distance/2), -(distance/2))
 
