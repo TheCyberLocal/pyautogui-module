@@ -23,7 +23,7 @@ pic = pyautogui.screenshot(region = (x_screen, y_screen, x_width, y_width))
 r,g,b = pic.getpixel(x, y)
 
 
-pclick()          # Click the mouse.
+pyautogui.click()          # Click the mouse.
 pyautogui.click(100, 200)  # Move the mouse to XY coordinates and click it.
 pyautogui.click('button.png') # Find where button.png appears on the screen and click it.
 
@@ -31,8 +31,18 @@ pyautogui.move(0, 10)      # Move mouse 10 pixels down from its current position
 pyautogui.doubleClick()    # Double click the mouse.
 pyautogui.moveTo(500, 500, duration=2, tween=pyautogui.easeInOutQuad)  # Use tweening/easing function to move mouse over 2 seconds.
 
+pyautogui.click(clicks=2)  # double-click the left mouse button
+pyautogui.click(clicks=2, interval=0.25)  # double-click the left mouse button, but with a quarter second pause in between clicks
+pyautogui.click(button='right', clicks=3, interval=0.25)  ## triple-click the right mouse button with a quarter second pause in between clicks
+
+pyautogui.dragTo(100, 200, button='left')     # drag mouse to X of 100, Y of 200 while holding down left mouse button
+pyautogui.dragTo(300, 400, 2, button='left')  # drag mouse to X of 300, Y of 400 over 2 seconds while holding down left mouse button
+pyautogui.drag(30, 0, 2, button='right')   # drag the mouse left 30 pixels over 2 seconds while holding down the right mouse button
+
+
 pyautogui.write('Hello world!', interval=0.25)  # type with quarter-second pause in between each key
 pyautogui.press('esc')     # Press the Esc key. All key names are in pyautogui.KEY_NAMES
+pyautogui.press('left', presses=3)
 
 pyautogui.keyDown('shift') # Press the Shift key down and hold it.
 pyautogui.press(['left', 'left', 'left', 'left']) # Press the left arrow key 4 times.
@@ -60,36 +70,6 @@ The password() Function
 Displays a message box with text input, and OK & Cancel buttons. Typed characters appear as *. Returns the text entered, or None if Cancel was clicked.
 '''
 
-'''
-pyautogui.press('left', presses=3)
-'''
-
-
-'''
-pyautogui.drag
-pyautogui.dragTo
-
->>> pyautogui.click(clicks=2)  # double-click the left mouse button
->>> pyautogui.click(clicks=2, interval=0.25)  # double-click the left mouse button, but with a quarter second pause in between clicks
->>> pyautogui.click(button='right', clicks=3, interval=0.25)  ## triple-click the right mouse button with a quarter second pause in between clicks
-
-
->>> pyautogui.dragTo(100, 200, button='left')     # drag mouse to X of 100, Y of 200 while holding down left mouse button
->>> pyautogui.dragTo(300, 400, 2, button='left')  # drag mouse to X of 300, Y of 400 over 2 seconds while holding down left mouse button
->>> pyautogui.drag(30, 0, 2, button='right')   # drag the mouse left 30 pixels over 2 seconds while holding down the right mouse button
-'''
-
-# example drags the mouse in a square spiral shape in MS Paint (or any graphics drawing program):
-'''
-distance = 200
-while distance > 0:
-	pyautogui.drag(distance, 0, duration=0.5)   # move right
-	distance -= 5
-	pyautogui.drag(0, distance, duration=0.5)   # move down
-	pyautogui.drag(-distance, 0, duration=0.5)  # move left
-	distance -= 5
-	pyautogui.drag(0, -distance, duration=0.5)  # move up
-	'''
 
 '''
 ['\t', '\n', '\r', ' ', '!', '"', '#', '$', '%', '&', "'", '(',
