@@ -54,6 +54,11 @@ pyautogui.dragTo(300, 400, 2, button='left')
 # Drags the mouse left 30 pixels over 2 seconds while holding the right mouse button.
 pyautogui.drag(30, 0, 2, button='right')
 
+# This line scrolls the mouse wheel up by a small amount (10 clicks).
+pyautogui.scroll(10)
+# This line scrolls the mouse wheel down by a small amount (10 clicks).
+pyautogui.scroll(-10)
+
 # Types 'Hello world!' with a quarter-second pause between each key press.
 pyautogui.write('Hello world!', interval=0.25)
 pyautogui.press('esc')  # Presses the Esc key.
